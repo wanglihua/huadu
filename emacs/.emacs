@@ -9,6 +9,8 @@
 
 ;;不创建备份文件
 (setq make-backup-files nil)
+;;不自动保存
+(setq auto-save-default nil)
 
 ;;color-theme
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0/") (require 'color-theme)
