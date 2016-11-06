@@ -3,6 +3,9 @@
 ;;建立的plugins加到.emacs的启动目录
 (add-to-list 'load-path "~/.emacs.d/plugins")
 
+(setq inhibit-startup-message t);关闭起动时闪屏 
+(setq visible-bell t);关闭出错时的提示声 
+
 ;;Line Number
 (global-linum-mode t)
 (column-number-mode t)
@@ -61,6 +64,10 @@
 (setq indent-tabs-mode t)
 (setq default-tab-width 4)
 (setq tab-width 4)
+
+(show-paren-mode t);显示括号匹配 
+(setq show-paren-mode t) ;;打开括号匹配显示模式 
+(setq show-paren-style 'parenthesis) 
 
 ;;No Menu Bar
 (menu-bar-mode -1)
