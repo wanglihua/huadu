@@ -14,6 +14,28 @@
 
 ;;go-mode
 (add-to-list 'load-path "~/.emacs.d/plugins/go-mode.el-1.4.0/") (require 'go-mode-autoloads)
+(add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'go-mode-hook '(lambda ()
+  (local-set-key (kbd "C-c C-f") 'gofmt)))
+(add-hook 'go-mode-hook '(lambda ()
+  (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)))
+(add-hook 'go-mode-hook '(lambda ()
+  (local-set-key (kbd "C-c C-k") 'godoc)))
+
+;;auto-complete
+(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete")
+(require 'auto-complete-config)
+(ac-config-default)
+(setq ac-auto-show-menu 0)
+(setq ac-use-menu-map t)
+(define-key ac-menu-map "\C-n" 'ac-next)
+(define-key ac-menu-map "\C-p" 'ac-previous)
+
+(add-to-list 'load-path "~/.emacs.d/plugins/gocode")
+(require 'go-autocomplete)
+
+;;(add-hook 'go-mode-hook 'company-mode)(add-hook 'go-mode-hook (lambda ()  (set (make-local-variable 'company-backends) '(company-go))
+;;  (company-mode)))
 
 ;;设置缩进
 (setq indent-tabs-mode t)
