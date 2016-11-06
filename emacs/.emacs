@@ -1,4 +1,4 @@
-(set-default-font "Courier 10 Pitch-8")
+(set-default-font "Courier 10 Pitch-7.5")
 
 ;;建立的plugins加到.emacs的启动目录
 (add-to-list 'load-path "~/.emacs.d/plugins")
@@ -11,6 +11,9 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0/") (require 'color-theme)
 (color-theme-initialize)
 (color-theme-gnome2)
+
+;;go-mode
+(add-to-list 'load-path "~/.emacs.d/plugins/go-mode.el-1.4.0/") (require 'go-mode-autoloads)
 
 ;;设置缩进
 (setq indent-tabs-mode t)
