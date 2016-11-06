@@ -39,8 +39,23 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/gocode")
 (require 'go-autocomplete)
 
-;;(add-hook 'go-mode-hook 'company-mode)(add-hook 'go-mode-hook (lambda ()  (set (make-local-variable 'company-backends) '(company-go))
-;;  (company-mode)))
+;;用>号缩进，用<号取消缩进
+(defun my-indent-region (N)
+  (interactive "p")
+  (if (use-region-p)
+      (progn (indent-rigidly (region-beginning) (region-end) (* N 4))
+             (setq deactivate-mark nil))
+    (self-insert-command N)))
+
+(defun my-unindent-region (N)
+  (interactive "p")
+  (if (use-region-p)
+      (progn (indent-rigidly (region-beginning) (region-end) (* N -4))
+             (setq deactivate-mark nil))
+    (self-insert-command N)))
+
+(global-set-key ">" 'my-indent-region)
+(global-set-key "<" 'my-unindent-region)
 
 ;;设置缩进
 (setq indent-tabs-mode t)
